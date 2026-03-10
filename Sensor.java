@@ -15,7 +15,7 @@ public class Sensor {
     public void run() {
         System.out.println("Sensor started. Reading voltage every " + INTERVAL_MS + "ms...\n");
 
-        while (true) {
+        for(int i = 0; i < 100; i++) {//needs a while loop but there is no implementation to stop it currently
             double voltage = readVoltage();
             System.out.printf("Voltage: %.3f V%n", voltage);
 
