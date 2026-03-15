@@ -17,3 +17,32 @@ jobs:
         
       - name: Run Docker container
         run: docker run java-docker-demo
+
+  sampler-build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: ./sampler
+        run: npm install
+
+      - name: Run unit test
+        working-directory: ./sampler
+        run: npm test
+
+      - name: Report successs
+        if: success()
+        run: echo "Sampler test passed successfully"
+
+      - name: Report failure
+        if: failure()
+        run: echo "Sampler tests failed"
+       
