@@ -70,5 +70,5 @@ app.post("/sample", (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log("Sampler running on http://localhost:3000");
+    console.log("Sampler running on http://172.17.0.1:3000/sample");
 });
