@@ -24,7 +24,7 @@ jobs:
       - name: Start sampler
         working-directory: ./sampler
         run: |
-          node server.Js
+          node server.js
           sleep 3
       
       - name: Build Docker image
